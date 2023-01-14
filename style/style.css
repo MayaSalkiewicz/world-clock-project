@@ -1,7 +1,101 @@
+:root {
+  font-size: 36px;
+  --primary-color: linear-gradient(
+    101.9deg,
+    rgb(253, 183, 220) 25%,
+    rgb(240, 213, 190) 38.1%,
+    rgb(249, 240, 206) 55.5%,
+    rgb(253, 244, 210) 67.3%,
+    rgb(222, 248, 226) 85.2%,
+    rgb(200, 247, 242) 103.6%
+  );
+}
+
+body {
+  background: var(--primary-color);
+  height: 100vh;
+  font-family: "Lato", sans-serif;
+}
+
+button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 30px;
+  padding: 10px;
+  border: 2px solid rgb(237, 106, 176);
+  border-radius: 25px;
+  background: var(--primary-color);
+  color: rgb(237, 106, 176);
+  font-weight: bold;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: all 150ms ease-in-out;
+}
+
+button:hover {
+  color: white;
+  background: rgb(237, 106, 176);
+}
+
+.container {
+  margin: 60px auto;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 650px;
+}
+
 h1 {
   text-align: center;
+  font-size: 1.5rem;
+  opacity: 0.9;
+  color: #333;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 0.6rem;
+  border-radius: 15px;
+}
+
+.city {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: middle;
+  padding: 0 15px;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.3);
+  padding-bottom: 25px;
+}
+
+.city:last-child {
+  border-bottom: none;
+}
+
+.city-date h3 {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.date {
+  font-size: 0.4rem;
+  opacity: 0.6;
+}
+
+.city-time {
+  font-size: 1.6rem;
+  margin-top: 30px;
+}
+
+.city-time small {
+  font-size: 0.6rem;
+  vertical-align: middle;
 }
 
 footer {
   text-align: center;
+  font-size: 0.5rem;
+  opacity: 0.6;
 }

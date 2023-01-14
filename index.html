@@ -5,9 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>World Clock by MayaS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="style/style.css" />
   </head>
   <body>
+    <button>Change Theme</button>
     <div class="container">
       <h1>World Clock</h1>
       <select>
@@ -16,15 +24,21 @@
         <option value="bangkok">🇹🇭 Bangkok</option>
       </select>
       <div class="city">
-        <h3>Los Angeles</h3>
-        <div class="date">Sunday, January 15</div>
+        <div class="city-date">
+          <h3>Los Angeles</h3>
+          <div class="date">January 15, 2023</div>
+        </div>
+        <div class="city-time">15:30:55<small> PM</small></div>
       </div>
-      <div class="time">14:55:34</div>
-        <h3>Paris</h3>
-        <div class="date">Sunday, January 15</div>
+      <div class="city">
+        <div class="city-date">
+          <h3>Sydney</h3>
+          <div class="date">January 15, 2023</div>
+        </div>
+        <div class="city-time">15:30:55<small> PM</small></div>
       </div>
-      <div class="time">14:55:34</div>
     </div>
+
     <footer>
       Coded with ❤️ by Maya Salkiewicz and is open sourced on
       <a href="#">GitHub</a>
