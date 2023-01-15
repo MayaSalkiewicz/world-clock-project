@@ -61,7 +61,7 @@ select {
   border-radius: 15px;
 }
 
-.city {
+.city-name {
   display: flex;
   justify-content: space-between;
   vertical-align: middle;
@@ -70,7 +70,7 @@ select {
   padding-bottom: 25px;
 }
 
-.city:last-child {
+.city-name:last-child {
   border-bottom: none;
 }
 

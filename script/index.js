@@ -1,19 +1,8 @@
-let selectCity = document.querySelector("#select-city");
-
-function checkCityTime(event) {
-  let timeZone = event.target.value;
-  let cityDate = moment().tz(timeZone).format("dddd, MMMM D, YYYY");
-  let cityTime = moment().tz(timeZone).format("hh:mm:sa");
-  alert(`Today is ${cityDate} ${cityTime} in ${event.target.value}`);
-}
-
-selectCity.addEventListener("change", checkCityTime);
-
 let firstCity = document.querySelector("#los-angeles");
 let secondCity = document.querySelector("#sydney");
 
 function showTimeAndDate() {
-  let cityElement = document.querySelector("#default-city");
+  let cityElement = document.querySelector(".city-name");
   let dateElement = document.querySelector(".date");
   let timeElement = document.querySelector(".city-time");
 
@@ -28,8 +17,31 @@ function showTimeAndDate() {
   timeElement.innerHTML = formatTimeElement;
 }
 
-showTimeAndDate(secondCity);
+let selectCity = document.querySelector("#select-city");
 
-let cityElement = document.querySelector("#default-city");
-cityElement = [];
-console.log(cityElement);
+function checkCityTime(event) {
+  let timeZone = event.target.value;
+  let cityName = timeZone.replace("_", " ").split("/")[1];
+  let cityDate = moment().tz(timeZone).format("dddd, MMMM D, YYYY");
+  let cityTime = moment().tz(timeZone);
+  let cityElement = document.querySelector("#cities");
+  cityElement.innerHTML = `
+  <div class="city-name" id="los-angeles">
+  <div class="city-date">
+    <h3 id="default-city" data-city="America/Los_Angeles">
+      ${cityName}
+    </h3>
+    <div class="date">${cityDate}</div>
+  </div>
+  <div class="city-time">${cityTime.format("hh:mm:ss")}<small>${cityTime.format(
+    "A"
+  )}</small></div>
+</div>`;
+}
+
+showTimeAndDate(firstCity);
+showTimeAndDate(secondCity);
+setInterval(showTimeAndDate, 1000);
+
+selectCity.addEventListener("change", checkCityTime);
+setInterval(checkCityTime, 1000);
