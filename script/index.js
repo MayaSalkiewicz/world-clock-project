@@ -1,7 +1,7 @@
 let firstCity = document.querySelector("#los-angeles");
 let secondCity = document.querySelector("#sydney");
 
-function showTimeAndDate() {
+function showTimeAndDate(city) {
   let cityElement = document.querySelector(".city-name");
   let dateElement = document.querySelector(".date");
   let timeElement = document.querySelector(".city-time");
@@ -39,7 +39,8 @@ function checkCityTime(event) {
   <div class="city-time">${cityTime.format("hh:mm:ss")}<small>${cityTime.format(
     "A"
   )}</small></div>
-</div>`;
+</div>
+<a href="/">Default cities</a>`;
 }
 
 showTimeAndDate(firstCity);
@@ -47,3 +48,11 @@ showTimeAndDate(secondCity);
 setInterval(showTimeAndDate, 1000);
 
 selectCity.addEventListener("change", checkCityTime);
+
+function changeTheme() {
+  let body = document.querySelector("body");
+  body.classList.toggle("dark");
+}
+
+let themeButton = document.querySelector("button");
+themeButton.addEventListener("click", changeTheme);

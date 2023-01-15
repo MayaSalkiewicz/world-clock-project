@@ -9,6 +9,11 @@
     rgb(222, 248, 226) 85.2%,
     rgb(200, 247, 242) 103.6%
   );
+  --dark-color: linear-gradient(
+    112.1deg,
+    rgb(32, 38, 57) 11.4%,
+    rgb(63, 76, 119) 70.2%
+  );
 }
 
 body {
@@ -98,4 +103,19 @@ footer {
   text-align: center;
   font-size: 0.5rem;
   opacity: 0.6;
+}
+
+.dark {
+  background: var(--dark-color);
+}
+
+.dark button {
+  color: white;
+  border: 2px solid rgb(32, 38, 57);
+  background: rgb(32, 38, 57);
+  transition: all 150ms ease-in-out;
+}
+
+.dark button:hover {
+  background: rgb(65, 74, 104);
 }
