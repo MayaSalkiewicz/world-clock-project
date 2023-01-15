@@ -1,21 +1,24 @@
-let firstCity = document.querySelector("#los-angeles");
-let secondCity = document.querySelector("#sydney");
+let allCities = document.querySelectorAll("div.city-name");
 
-function showTimeAndDate(city) {
-  let cityElement = document.querySelector(".city-name");
-  let dateElement = document.querySelector(".date");
-  let timeElement = document.querySelector(".city-time");
+const updateTimes = function () {
+  allCities.forEach((city) => {
+    let dateElement = city.querySelector(".date");
+    let timeElement = city.querySelector(".city-time");
+    let timeZone = city.getAttribute("data-city");
+    console.log(timeZone);
 
-  let formatDateElement = moment()
-    .tz(cityElement.dataset.city)
-    .format("dddd, MMMM D, YYYY");
-  let formatTimeElement = moment()
-    .tz(cityElement.dataset.city)
-    .format("hh:mm:sa");
+    let timeZoneElement = moment().tz(timeZone);
+    let formatDateElement = moment().tz(timeZone).format("dddd, MMMM D, YYYY");
 
-  dateElement.innerHTML = formatDateElement;
-  timeElement.innerHTML = formatTimeElement;
-}
+    dateElement.innerHTML = formatDateElement;
+    timeElement.innerHTML = timeZoneElement.format(
+      "hh:mm:ss [<small>]A[</small>]"
+    );
+  });
+};
+
+updateTimes();
+setInterval(updateTimes, 1000);
 
 let selectCity = document.querySelector("#select-city");
 
@@ -29,7 +32,7 @@ function checkCityTime(event) {
   let cityTime = moment().tz(timeZone);
   let cityElement = document.querySelector("#cities");
   cityElement.innerHTML = `
-  <div class="city-name" id="los-angeles">
+  <div class="city-name" id="city-name" data-city="${event.target.value}">
   <div class="city-date">
     <h3 id="default-city" data-city="America/Los_Angeles">
       ${cityName}
@@ -40,12 +43,8 @@ function checkCityTime(event) {
     "A"
   )}</small></div>
 </div>
-<a href="/">Default cities</a>`;
+<a href="/"><small>Default cities</small></a>`;
 }
-
-showTimeAndDate(firstCity);
-showTimeAndDate(secondCity);
-setInterval(showTimeAndDate, 1000);
 
 selectCity.addEventListener("change", checkCityTime);
 
