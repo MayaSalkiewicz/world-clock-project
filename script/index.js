@@ -21,6 +21,9 @@ let selectCity = document.querySelector("#select-city");
 
 function checkCityTime(event) {
   let timeZone = event.target.value;
+  if (timeZone === "current") {
+    timeZone = moment.tz.guess();
+  }
   let cityName = timeZone.replace("_", " ").split("/")[1];
   let cityDate = moment().tz(timeZone).format("dddd, MMMM D, YYYY");
   let cityTime = moment().tz(timeZone);
@@ -44,4 +47,3 @@ showTimeAndDate(secondCity);
 setInterval(showTimeAndDate, 1000);
 
 selectCity.addEventListener("change", checkCityTime);
-setInterval(checkCityTime, 1000);
