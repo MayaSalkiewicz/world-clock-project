@@ -119,3 +119,32 @@ footer {
 .dark button:hover {
   background: rgb(65, 74, 104);
 }
+
+@media (max-width: 550px) {
+  .container {
+    margin: 100px auto;
+    padding: 5px 10px;
+  }
+
+  h1 {
+    font-size: 1rem;
+  }
+
+  select {
+    padding: 5px 10px;
+    font-size: 0.5rem;
+  }
+
+  .city-name {
+    padding: 0 10px;
+    padding-bottom: 15px;
+  }
+
+  .city-date h3 {
+    font-size: 0.8rem;
+  }
+
+  .city-time {
+    font-size: 1rem;
+  }
+}
